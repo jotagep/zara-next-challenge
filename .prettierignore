@@ -1,0 +1,6 @@
+node_modules
+dist
+bun.lock
+dist/bundle-analyzer.html
+storybook-static
+public
