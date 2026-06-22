@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
+        protocol: 'http',
         hostname: 'prueba-tecnica-api-tienda-moviles.onrender.com',
         pathname: '/**',
       },

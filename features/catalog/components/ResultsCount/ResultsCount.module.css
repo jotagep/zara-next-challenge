@@ -1,0 +1,10 @@
+.text {
+  margin: var(--space-sm) 0 0;
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-label-font-size);
+  line-height: var(--typo-label-line-height);
+  letter-spacing: var(--typo-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-text);
+}

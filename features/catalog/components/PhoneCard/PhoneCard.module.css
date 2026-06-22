@@ -1,0 +1,106 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: var(--height-card);
+  padding: var(--space-base);
+  gap: var(--space-xl);
+  outline: var(--stroke-thin) solid var(--color-text);
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow: hidden;
+  transition: color var(--motion-slow) var(--ease-in-out);
+  will-change: transform;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--color-text);
+  transform: translateY(100%);
+  transition: transform var(--motion-slow) var(--ease-in-out);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.card:hover {
+  color: var(--color-bg);
+}
+
+.card:hover::before {
+  transform: translateY(0);
+}
+
+.imageWrapper {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 0;
+}
+
+.brand {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-brand-font-size);
+  line-height: var(--typo-brand-line-height);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  transition: color var(--motion-slow) var(--ease-in-out);
+}
+
+.card:hover .brand {
+  color: var(--color-bg);
+  opacity: 0.7;
+}
+
+.name {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-label-font-size);
+  line-height: var(--typo-label-line-height);
+  text-transform: uppercase;
+}
+
+.price {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-label-font-size);
+  line-height: var(--typo-label-line-height);
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::before,
+  .brand {
+    transition: none;
+    will-change: auto;
+  }
+}

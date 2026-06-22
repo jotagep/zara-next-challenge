@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  width: 100%;
+  height: var(--height-card);
+  padding: var(--space-base);
+  outline: var(--stroke-thin) solid var(--color-skeleton);
+  background: var(--color-bg);
+}
+
+.image {
+  flex: 1;
+  background: var(--color-skeleton);
+}
+
+.line {
+  height: var(--typo-label-line-height);
+  width: 70%;
+  background: var(--color-skeleton);
+}
+
+.lineShort {
+  height: var(--typo-label-line-height);
+  width: 30%;
+  background: var(--color-skeleton);
+}
