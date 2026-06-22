@@ -1,0 +1,26 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--space-3xl) var(--space-container) var(--space-3xl);
+  gap: var(--space-3xl);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.search {
+  width: 100%;
+  height: var(--height-search);
+  border-bottom: var(--stroke-thin) solid var(--color-text);
+}
+
+.countLine {
+  height: var(--typo-label-line-height);
+  width: 120px;
+  background: var(--color-skeleton);
+}
