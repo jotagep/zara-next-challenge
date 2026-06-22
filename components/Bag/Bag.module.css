@@ -1,0 +1,13 @@
+.icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.count {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-body-lg-font-size);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-text);
+}

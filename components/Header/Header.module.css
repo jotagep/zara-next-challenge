@@ -1,0 +1,29 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  height: var(--height-header);
+  padding: 0 var(--space-container);
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text);
+}
+
+.bag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-text);
+}

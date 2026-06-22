@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 
+import { Header } from '@/components/Header/Header'
+
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Zara Phone Catalog',
-  description: 'Browse the Zara phones catalog',
+  title: 'Mobile Phone Catalog',
+  description: 'Browse the mobile phones catalog',
 }
 
 export default function RootLayout({
@@ -14,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
