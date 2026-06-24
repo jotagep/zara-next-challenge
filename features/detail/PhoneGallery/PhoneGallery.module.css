@@ -1,0 +1,42 @@
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 260/277;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: contain;
+  animation: galleryFadeIn var(--motion-base) var(--ease-out);
+}
+
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    animation: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .frame {
+    aspect-ratio: auto;
+    height: 416px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .frame {
+    height: 510px;
+  }
+}
