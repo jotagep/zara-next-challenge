@@ -1,0 +1,129 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding-top: var(--space-4xl);
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4xl);
+  width: 100%;
+}
+
+.gallery {
+  flex: 0 0 auto;
+  width: 510px;
+  aspect-ratio: 510 / 630;
+  background: var(--color-skeleton);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: var(--width-product-info);
+  gap: var(--space-4xl);
+}
+
+.title {
+  width: 80%;
+  height: 28px;
+  background: var(--color-skeleton);
+}
+
+.price {
+  width: 50%;
+  height: 24px;
+  background: var(--color-skeleton);
+  margin-top: var(--space-md);
+}
+
+.options {
+  width: 100%;
+  height: 56px;
+  background: var(--color-skeleton);
+}
+
+.cta {
+  width: 100%;
+  height: 56px;
+  background: var(--color-skeleton);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+  width: 100%;
+}
+
+.heading {
+  width: 220px;
+  height: 24px;
+  background: var(--color-skeleton);
+}
+
+.specList {
+  display: flex;
+  flex-direction: column;
+}
+
+.specRow {
+  display: flex;
+  gap: var(--space-3xl);
+  padding: var(--space-base) 0;
+  border-bottom: var(--stroke-thin) solid var(--color-skeleton);
+}
+
+.specRow:first-child {
+  border-top: var(--stroke-thin) solid var(--color-skeleton);
+}
+
+.specLabel {
+  flex: 0 0 300px;
+  max-width: 300px;
+  height: 16px;
+  background: var(--color-skeleton);
+}
+
+.specValue {
+  flex: 1 1 auto;
+  height: 16px;
+  background: var(--color-skeleton);
+}
+
+@media (max-width: 1024px) {
+  .gallery {
+    width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    gap: var(--space-4xl);
+    padding-top: var(--space-2xl);
+  }
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2xl);
+  }
+  .gallery {
+    width: 100%;
+  }
+  .info {
+    width: 100%;
+    gap: var(--space-2xl);
+  }
+  .specRow {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .specLabel {
+    flex-basis: auto;
+    max-width: 100%;
+  }
+}
