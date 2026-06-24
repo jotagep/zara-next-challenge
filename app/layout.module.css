@@ -1,4 +1,4 @@
-.page {
+.main {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6,12 +6,4 @@
   max-width: var(--width-catalog);
   margin-inline: auto;
   padding: 0 var(--space-container) var(--space-3xl);
-  gap: var(--space-3xl);
-}
-
-.toolbar {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  width: 100%;
 }

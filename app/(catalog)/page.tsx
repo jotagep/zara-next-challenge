@@ -2,8 +2,6 @@ import { CatalogClient } from '@/features/catalog/components/CatalogClient/Catal
 import { PAGE_SIZE } from '@/features/catalog/constants'
 import { fetchPhones } from '@/shared/lib/api'
 
-import styles from './page.module.css'
-
 type PageProps = {
   searchParams: Promise<{ search?: string }>
 }
@@ -16,11 +14,5 @@ export default async function HomePage({ searchParams }: PageProps) {
     (id) => phones.find((phone) => phone.id === id)!
   )
 
-  return (
-    <main className={styles.page}>
-      <section className={styles.toolbar}>
-        <CatalogClient initialPhones={initialPhones} />
-      </section>
-    </main>
-  )
+  return <CatalogClient initialPhones={initialPhones} />
 }

@@ -4,6 +4,7 @@ import { Header } from '@/shared/components/Header/Header'
 import { CartProvider } from '@/shared/context/CartContext'
 
 import './globals.css'
+import styles from './layout.module.css'
 
 export const metadata: Metadata = {
   title: 'Mobile Phone Catalog',
@@ -20,7 +21,7 @@ export default function RootLayout({
       <body>
         <CartProvider>
           <Header />
-          {children}
+          <main className={styles.main}>{children}</main>
         </CartProvider>
       </body>
     </html>

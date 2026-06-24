@@ -16,7 +16,7 @@ export const CatalogClient = ({ initialPhones }: CatalogClientProps) => {
   const isSearching = isPending || value !== urlSearch
 
   return (
-    <>
+    <div className={styles.content}>
       <SearchInput
         value={value}
         onChange={setValue}
@@ -30,6 +30,6 @@ export const CatalogClient = ({ initialPhones }: CatalogClientProps) => {
       >
         <PhoneGrid phones={initialPhones} />
       </div>
-    </>
+    </div>
   )
 }
