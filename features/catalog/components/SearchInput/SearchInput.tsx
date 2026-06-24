@@ -15,8 +15,21 @@ type SearchInputProps = {
 
 export const SearchInput = ({ value, onChange, count, isSearching }: SearchInputProps) => {
   const inputId = useId()
+
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(event.target.value)
+  }
+
+  const handleOnClear = () => {
+    onChange('')
+  }
+
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
+
   return (
-    <div className={styles.container}>
+    <form role="search" className={styles.container} onSubmit={handleOnSubmit}>
       <label htmlFor={inputId} className={styles.label}>
         Search for a smartphone...
       </label>
@@ -25,16 +38,17 @@ export const SearchInput = ({ value, onChange, count, isSearching }: SearchInput
           id={inputId}
           type="search"
           value={value}
-          onChange={(event) => onChange(event.target.value)}
+          onChange={handleOnChange}
           placeholder="Search for a smartphone..."
           className={styles.input}
           autoComplete="off"
           spellCheck={false}
+          aria-describedby={`${inputId}-count`}
         />
         {value && (
           <button
             type="button"
-            onClick={() => onChange('')}
+            onClick={handleOnClear}
             aria-label="Clear search"
             className={styles.clear}
           >
@@ -55,7 +69,7 @@ export const SearchInput = ({ value, onChange, count, isSearching }: SearchInput
           </button>
         )}
       </div>
-      <ResultsCount count={count} isSearching={isSearching} />
-    </div>
+      <ResultsCount id={`${inputId}-count`} count={count} isSearching={isSearching} />
+    </form>
   )
 }
