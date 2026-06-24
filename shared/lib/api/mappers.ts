@@ -1,5 +1,5 @@
-import type { ApiColorOption, ApiPhoneDetail, ApiPhoneListItem } from '@/lib/types/api'
-import type { ColorOption, Phone, PhoneListItem } from '@/lib/types/domain'
+import type { ApiColorOption, ApiPhoneDetail, ApiPhoneListItem } from '@/shared/lib/types/api'
+import type { ColorOption, Phone, PhoneListItem } from '@/shared/lib/types/domain'
 
 const mapColorOption = (dto: ApiColorOption): ColorOption => ({
   name: dto.name,

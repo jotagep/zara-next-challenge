@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import type { PhoneListItem } from '@/lib/types/domain'
-import { formatPrice } from '@/lib/utils/formatPrice'
+import type { PhoneListItem } from '@/shared/lib/types/domain'
+import { formatPrice } from '@/shared/lib/utils/formatPrice'
 
 import styles from './PhoneCard.module.css'
 

@@ -1,4 +1,4 @@
-import type { PhoneId } from '@/lib/types/domain'
+import type { PhoneId } from '@/shared/lib/types/domain'
 
 export type ApiPhoneListItem = {
   id: PhoneId

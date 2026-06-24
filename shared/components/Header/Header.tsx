@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import { Bag } from '@/components/Bag/Bag'
-import { Logo } from '@/components/Logo/Logo'
+import { Bag } from '@/shared/components/Bag/Bag'
+import { Logo } from '@/shared/components/Logo/Logo'
 
 import styles from './Header.module.css'
 

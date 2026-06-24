@@ -1,6 +1,6 @@
-import { PhoneCard } from '@/components/PhoneCard/PhoneCard'
 import { PRIORITY_CARD_COUNT } from '@/features/catalog/constants'
-import type { PhoneListItem } from '@/lib/types/domain'
+import { PhoneCard } from '@/shared/components/PhoneCard/PhoneCard'
+import type { PhoneListItem } from '@/shared/lib/types/domain'
 
 import styles from './PhoneGrid.module.css'
 

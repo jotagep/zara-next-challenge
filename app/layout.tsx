@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
-import { Header } from '@/components/Header/Header'
-import { CartProvider } from '@/context/CartContext'
+import { Header } from '@/shared/components/Header/Header'
+import { CartProvider } from '@/shared/context/CartContext'
 
 import './globals.css'
 

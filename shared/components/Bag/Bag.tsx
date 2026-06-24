@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { useCart } from '@/context/CartContext'
+import { useCart } from '@/shared/context/CartContext'
 
 import styles from './Bag.module.css'
 

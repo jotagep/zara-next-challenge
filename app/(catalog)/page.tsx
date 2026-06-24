@@ -1,6 +1,6 @@
 import { CatalogClient } from '@/features/catalog/components/CatalogClient/CatalogClient'
 import { PAGE_SIZE } from '@/features/catalog/constants'
-import { fetchPhones } from '@/lib/api'
+import { fetchPhones } from '@/shared/lib/api'
 
 import styles from './page.module.css'
 

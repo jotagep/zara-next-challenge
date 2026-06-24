@@ -1,5 +1,5 @@
-import type { ApiPhoneDetail, ApiPhoneListResponse } from '@/lib/types/api'
-import type { FetchPhonesParams, Phone, PhoneId, PhoneListItem } from '@/lib/types/domain'
+import type { ApiPhoneDetail, ApiPhoneListResponse } from '@/shared/lib/types/api'
+import type { FetchPhonesParams, Phone, PhoneId, PhoneListItem } from '@/shared/lib/types/domain'
 
 import { apiFetch } from './apiClient'
 import { mapPhone, mapPhoneListItem } from './mappers'

@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 
-import type { ColorOption, PhoneId, StorageOption } from '@/lib/types/domain'
+import type { ColorOption, PhoneId, StorageOption } from '@/shared/lib/types/domain'
 
 export type CartItem = {
   id: PhoneId

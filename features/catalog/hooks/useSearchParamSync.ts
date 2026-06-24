@@ -3,7 +3,7 @@
 import { useEffect, useState, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
-import { useDebounce } from '@/hooks/useDebounce'
+import { useDebounce } from '@/shared/hooks/useDebounce'
 
 type UseSearchParamSyncResult = {
   value: string
