@@ -1,0 +1,74 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-title-font-size);
+  line-height: var(--typo-title-line-height);
+  text-transform: uppercase;
+  color: var(--color-text);
+  letter-spacing: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-base) 0;
+  border-bottom: var(--stroke-thin) solid var(--color-text);
+}
+
+.firstRow {
+  border-top: var(--stroke-thin) solid var(--color-text);
+}
+
+.label {
+  flex: 0 0 auto;
+  max-width: 100%;
+  margin: 0;
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-label-font-size);
+  line-height: var(--typo-label-line-height);
+  letter-spacing: var(--typo-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.value {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-body-font-size);
+  line-height: var(--typo-body-line-height);
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-3xl);
+  }
+
+  .label {
+    flex: 0 0 300px;
+    max-width: 300px;
+  }
+}
