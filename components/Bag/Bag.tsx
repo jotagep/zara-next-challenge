@@ -1,4 +1,8 @@
+'use client'
+
 import Link from 'next/link'
+
+import { useCart } from '@/context/CartContext'
 
 import styles from './Bag.module.css'
 
@@ -10,27 +14,29 @@ const BAG_PATH_ACTIVE =
 
 type BagProps = {
   className?: string
-  count?: number
 }
 
-export const Bag = ({ className, count = 0 }: BagProps) => (
-  <Link href="/cart" className={className} aria-label={`Shopping bag, ${count} items`}>
-    <svg
-      className={styles.icon}
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d={count === 0 ? BAG_PATH_INACTIVE : BAG_PATH_ACTIVE}
-        fill="currentColor"
-      />
-    </svg>
-    <span className={styles.count}>{count}</span>
-  </Link>
-)
+export const Bag = ({ className }: BagProps) => {
+  const { count } = useCart()
+  return (
+    <Link href="/cart" className={className} aria-label={`Shopping bag, ${count} items`}>
+      <svg
+        className={styles.icon}
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d={count === 0 ? BAG_PATH_INACTIVE : BAG_PATH_ACTIVE}
+          fill="currentColor"
+        />
+      </svg>
+      <span className={styles.count}>{count}</span>
+    </Link>
+  )
+}

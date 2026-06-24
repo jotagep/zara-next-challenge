@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { Header } from '@/components/Header/Header'
+import { CartProvider } from '@/context/CartContext'
 
 import './globals.css'
 
@@ -17,8 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
+        <CartProvider>
+          <Header />
+          {children}
+        </CartProvider>
       </body>
     </html>
   )
