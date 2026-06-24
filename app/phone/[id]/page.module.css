@@ -1,0 +1,13 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4xl);
+  padding-top: var(--space-2xl);
+}
+
+@media (min-width: 768px) {
+  .content {
+    gap: 120px;
+    padding-top: var(--space-4xl);
+  }
+}
