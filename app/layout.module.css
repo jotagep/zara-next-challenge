@@ -3,7 +3,5 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: var(--width-catalog);
-  margin-inline: auto;
-  padding: 0 var(--space-container) var(--space-3xl);
+  padding-bottom: var(--space-3xl);
 }
