@@ -16,12 +16,13 @@ export const mapPhoneListItem = (dto: ApiPhoneListItem): PhoneListItem => ({
 })
 
 export const mapPhone = (dto: ApiPhoneDetail): Phone => {
+  const fallbackImage = dto.colorOptions[0]?.imageUrl ?? ''
   return {
     id: dto.id,
     brand: dto.brand,
     name: dto.name,
     basePrice: dto.basePrice,
-    imageUrl: dto.imageUrl,
+    imageUrl: dto.imageUrl ?? fallbackImage,
     description: dto.description,
     rating: dto.rating,
     specs: {
