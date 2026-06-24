@@ -1,6 +1,6 @@
-/// <reference types="vitest/globals" />
 import type { ColorOption, StorageOption } from '@/shared/lib/types/domain'
 import { act, renderHook } from '@testing-library/react'
+import { beforeEach, describe, expect, it } from 'vitest'
 
 import { CartProvider, useCart } from './CartContext'
 

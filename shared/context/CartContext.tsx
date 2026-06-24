@@ -60,9 +60,7 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     // Intentional: hydrate from localStorage on mount. The first render uses the
-    // empty default to match SSR; this effect performs a one-time client-side
-    // rehydration, which produces a single extra render. useSyncExternalStore
-    // would not fit here because mutations also live in this provider's state.
+    // empty default to match SSR
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setItems(readStoredItems())
   }, [])
