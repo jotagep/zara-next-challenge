@@ -14,10 +14,12 @@ export const PhoneGrid = ({ phones }: PhoneGridProps) => {
   }
 
   return (
-    <div className={styles.grid}>
+    <ul role="list" aria-label="Phone catalog" className={styles.grid}>
       {phones.map((phone, index) => (
-        <PhoneCard key={phone.id} phone={phone} priority={index < PRIORITY_CARD_COUNT} />
+        <li key={phone.id}>
+          <PhoneCard phone={phone} priority={index < PRIORITY_CARD_COUNT} />
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
