@@ -52,16 +52,13 @@
   --height-header: 80px;
   --height-search: 27px;
 
-  --width-card: 344px;
-  --height-card: 344px;
+  --width-card: 340px;
   --width-storage-option: 120px;
 
   --width-content: 1200px;
   --width-catalog: 1842px;
   --width-product-info: 380px;
-  --height-gallery: 630px;
 
-  --radius-none: 0;
   --radius-sm: 4px;
 
   --stroke-thin: 0.5px;
