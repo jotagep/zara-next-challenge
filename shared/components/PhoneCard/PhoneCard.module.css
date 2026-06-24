@@ -35,6 +35,10 @@
   transform: translateY(0);
 }
 
+.article {
+  display: contents;
+}
+
 .imageWrapper {
   position: relative;
   z-index: 1;
