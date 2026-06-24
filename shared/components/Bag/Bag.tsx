@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 
+import { ROUTES } from '@/shared/config/routes'
 import { useCart } from '@/shared/context/CartContext'
 
 import styles from './Bag.module.css'
@@ -19,7 +20,7 @@ type BagProps = {
 export const Bag = ({ className }: BagProps) => {
   const { count } = useCart()
   return (
-    <Link href="/cart" className={className} aria-label={`Shopping bag, ${count} items`}>
+    <Link href={ROUTES.cart} className={className} aria-label={`Shopping bag, ${count} items`}>
       <svg
         className={styles.icon}
         width="24"

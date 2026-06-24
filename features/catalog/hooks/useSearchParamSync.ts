@@ -3,6 +3,7 @@
 import { useEffect, useState, useTransition } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
+import { SEARCH_PARAM } from '@/shared/config/routes'
 import { useDebounce } from '@/shared/hooks/useDebounce'
 
 type UseSearchParamSyncResult = {
@@ -18,7 +19,7 @@ export const useSearchParamSync = (): UseSearchParamSyncResult => {
   const params = useSearchParams()
   const [isPending, startTransition] = useTransition()
 
-  const urlSearch = params.get('search') ?? ''
+  const urlSearch = params.get(SEARCH_PARAM) ?? ''
   const [value, setValue] = useState(urlSearch)
   const debounced = useDebounce(value)
 
@@ -27,9 +28,9 @@ export const useSearchParamSync = (): UseSearchParamSyncResult => {
     const nextParams = new URLSearchParams(params.toString())
     const trimmed = debounced.trim()
     if (trimmed) {
-      nextParams.set('search', trimmed)
+      nextParams.set(SEARCH_PARAM, trimmed)
     } else {
-      nextParams.delete('search')
+      nextParams.delete(SEARCH_PARAM)
     }
     const nextQuery = nextParams.toString()
     if (nextQuery === params.toString()) return

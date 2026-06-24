@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { ROUTES } from '@/shared/config/routes'
 import type { PhoneListItem } from '@/shared/lib/types/domain'
 import { formatPrice } from '@/shared/lib/utils/formatPrice'
 
@@ -12,7 +13,7 @@ type PhoneCardProps = {
 }
 
 export const PhoneCard = ({ phone, priority = false }: PhoneCardProps) => (
-  <Link href={`/phone/${phone.id}`} className={styles.card}>
+  <Link href={ROUTES.phone(phone.id)} className={styles.card}>
     <article className={styles.article}>
       <div className={styles.imageWrapper}>
         <Image
