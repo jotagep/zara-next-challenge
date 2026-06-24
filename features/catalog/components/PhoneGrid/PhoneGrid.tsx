@@ -1,4 +1,4 @@
-import { PhoneCard } from '@/features/catalog/components/PhoneCard/PhoneCard'
+import { PhoneCard } from '@/components/PhoneCard/PhoneCard'
 import { PRIORITY_CARD_COUNT } from '@/features/catalog/constants'
 import type { PhoneListItem } from '@/lib/types/domain'
 

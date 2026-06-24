@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: var(--height-card);
+  aspect-ratio: 1 / 1;
   padding: var(--space-base);
   gap: var(--space-xl);
   outline: var(--stroke-thin) solid var(--color-text);
@@ -44,6 +44,7 @@
 }
 
 .image {
+  padding: var(--space-sm);
   object-fit: contain;
 }
 

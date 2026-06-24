@@ -10,7 +10,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 100%;
+  max-width: var(--width-catalog);
+  margin-inline: auto;
   height: var(--height-header);
   padding: 0 var(--space-container);
 }

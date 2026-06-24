@@ -1,19 +1,7 @@
-.searching {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.searchingText {
-  margin: 0;
-  height: var(--typo-label-line-height);
-  font-family: var(--font-base);
-  font-weight: var(--font-weight-light);
-  font-size: var(--typo-label-font-size);
-  line-height: var(--typo-label-line-height);
-  letter-spacing: var(--typo-label-letter-spacing);
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
+.dimmed {
+  opacity: 0.5;
+  transition: opacity var(--motion-fast) var(--ease-out);
+  pointer-events: none;
 }
 
 .sentinel {

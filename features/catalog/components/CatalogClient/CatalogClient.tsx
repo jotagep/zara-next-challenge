@@ -1,7 +1,6 @@
 'use client'
 
 import { PhoneGrid } from '@/features/catalog/components/PhoneGrid/PhoneGrid'
-import { PhoneGridSkeleton } from '@/features/catalog/components/PhoneGrid/PhoneGridSkeleton'
 import { SearchInput } from '@/features/catalog/components/SearchInput/SearchInput'
 import { useSearchParamSync } from '@/features/catalog/hooks/useSearchParamSync'
 import type { PhoneListItem } from '@/lib/types/domain'
@@ -24,13 +23,13 @@ export const CatalogClient = ({ initialPhones }: CatalogClientProps) => {
         count={initialPhones.length}
         isSearching={isSearching}
       />
-      {isSearching ? (
-        <div className={styles.searching} aria-busy="true" aria-live="polite">
-          <PhoneGridSkeleton />
-        </div>
-      ) : (
+      <div
+        className={isSearching ? styles.dimmed : undefined}
+        aria-busy={isSearching}
+        aria-live="polite"
+      >
         <PhoneGrid phones={initialPhones} />
-      )}
+      </div>
     </>
   )
 }

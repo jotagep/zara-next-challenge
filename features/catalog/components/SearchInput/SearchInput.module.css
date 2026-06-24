@@ -4,7 +4,7 @@
   z-index: 1;
   width: 100%;
   background: var(--color-bg);
-  padding: var(--space-xl) 0 var(--space-md);
+  padding: var(--space-3xl) 0 var(--space-base);
 }
 
 .label {
@@ -41,8 +41,7 @@
 }
 
 .input::placeholder {
-  color: var(--color-text-secondary);
-  opacity: 0.6;
+  color: var(--color-placeholder);
 }
 
 .input::-webkit-search-cancel-button {

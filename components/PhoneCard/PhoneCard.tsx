@@ -18,7 +18,7 @@ export const PhoneCard = ({ phone, priority = false }: PhoneCardProps) => (
         src={phone.imageUrl}
         alt={`${phone.brand} ${phone.name}`}
         fill
-        sizes="(max-width: 768px) 100vw, 344px"
+        sizes="(max-width: 767px) 100vw, 344px"
         className={styles.image}
         priority={priority}
       />
