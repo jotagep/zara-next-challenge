@@ -2,9 +2,9 @@
   position: sticky;
   top: var(--height-header);
   z-index: 1;
-  width: 100%;
   background: var(--color-bg);
-  padding: var(--space-3xl) 0 var(--space-base);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-base);
 }
 
 .label {
@@ -85,4 +85,10 @@
   width: 12px;
   height: 12px;
   display: block;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-top: var(--space-3xl);
+  }
 }

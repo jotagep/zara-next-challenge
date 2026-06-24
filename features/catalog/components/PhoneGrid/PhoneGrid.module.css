@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  padding: var(--space-xl) 1px;
+  padding: 0 1px;
   margin: 0;
   list-style: none;
 }
@@ -10,6 +10,7 @@
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(min(var(--width-card), 100%), 1fr));
+    padding: var(--space-xl) 1px;
   }
 }
 
