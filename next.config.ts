@@ -6,7 +6,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'http',
         hostname: 'prueba-tecnica-api-tienda-moviles.onrender.com',
-        pathname: '/**',
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'prueba-tecnica-api-tienda-moviles.onrender.com',
+        pathname: '/images/**',
       },
     ],
   },
