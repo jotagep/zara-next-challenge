@@ -190,6 +190,7 @@ The goal was an optimal, functional version within the challenge's scope — usi
 
 - **Animation libraries** (Motion) or the native **View Transitions API** for catalog→detail shared-element transitions and grid reflow.
 - **SonarQube** or **CodeRabbit** for automated best-practice and code-smell analysis on pull requests.
+- **i18n** (internationalization) to support multi-language routing and localized product catalogs.
 - **Storybook** to document and isolate the shared component library.
 - **Mock Service Worker (MSW)** or a local mock server to mock API endpoints during E2E tests, ensuring full test isolation and eliminating dependencies on external API availability and image hosting domains.
 
