@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { Header } from '@/shared/components/Header/Header'
+import { ScrollToTop } from '@/shared/components/ScrollToTop/ScrollToTop'
 import { siteConfig } from '@/shared/config/site'
 import { CartProvider } from '@/shared/context/CartContext'
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <CartProvider>
+          <ScrollToTop />
           <Header />
           <main className={styles.main}>{children}</main>
         </CartProvider>
