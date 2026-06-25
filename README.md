@@ -191,6 +191,7 @@ The goal was an optimal, functional version within the challenge's scope — usi
 - **Animation libraries** (Motion) or the native **View Transitions API** for catalog→detail shared-element transitions and grid reflow.
 - **SonarQube** or **CodeRabbit** for automated best-practice and code-smell analysis on pull requests.
 - **Storybook** to document and isolate the shared component library.
+- **Mock Service Worker (MSW)** or a local mock server to mock API endpoints during E2E tests, ensuring full test isolation and eliminating dependencies on external API availability and image hosting domains.
 
 Honestly, none of these are what the challenge is about, and adding them would be premature optimization — knowing what to leave out is part of the job.
 
