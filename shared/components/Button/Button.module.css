@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-base) var(--space-base);
+  padding: var(--space-sm) var(--space-sm);
   border: var(--stroke-base) solid var(--color-text);
   font-family: var(--font-base);
   font-weight: var(--font-weight-light);
