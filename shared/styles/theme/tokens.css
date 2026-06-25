@@ -9,6 +9,7 @@
   --color-content-disabled: #c2bfbc;
   --color-highlight: #1b1a18;
   --color-inverse: #ffffff;
+  --color-error: #df0000;
 
   --font-base: Helvetica, Arial, sans-serif;
   --font-weight-light: 300;
@@ -54,6 +55,7 @@
 
   --width-card: 340px;
   --width-storage-option: 95px;
+  --width-cart-item-image: 140px;
 
   --width-content: 1200px;
   --width-catalog: 1842px;
@@ -74,6 +76,7 @@
 @media (min-width: 768px) {
   :root {
     --space-container: 40px;
+    --width-cart-item-image: 260px;
   }
 }
 
