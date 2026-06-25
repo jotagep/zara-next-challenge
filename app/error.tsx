@@ -4,8 +4,6 @@ import { useEffect } from 'react'
 
 import { Button } from '@/shared/components/Button/Button'
 
-import styles from './error.module.css'
-
 type ErrorProps = {
   error: Error & { digest?: string }
   reset: () => void
@@ -19,10 +17,10 @@ export default function GlobalError({ error, reset }: ErrorProps) {
   }, [error])
 
   return (
-    <div className={styles.center}>
-      <div className={styles.card}>
-        <h1 className={styles.title}>Something went wrong</h1>
-        <p className={styles.message}>An unexpected error occurred. Please try again.</p>
+    <div className="messageScreenCenter">
+      <div className="messageScreenCard">
+        <h1 className="messageScreenTitle">Something went wrong</h1>
+        <p className="messageScreenMessage">An unexpected error occurred. Please try again.</p>
         <Button onClick={reset}>Try again</Button>
       </div>
     </div>
