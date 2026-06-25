@@ -7,18 +7,23 @@ import clsx from 'clsx'
 
 import styles from './Button.module.css'
 
-type ButtonAsButton = {
+export const BUTTON_VARIANTS = ['primary', 'secondary'] as const
+export type ButtonVariant = (typeof BUTTON_VARIANTS)[number]
+
+type SharedButtonProps = {
   children: ReactNode
   className?: string
+  variant?: ButtonVariant
+}
+
+type ButtonAsButton = SharedButtonProps & {
   href?: undefined
   onClick?: MouseEventHandler<HTMLButtonElement>
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
 }
 
-type ButtonAsLink = {
-  children: ReactNode
-  className?: string
+type ButtonAsLink = SharedButtonProps & {
   href: string
   prefetch?: boolean
 }
@@ -26,8 +31,8 @@ type ButtonAsLink = {
 type ButtonProps = ButtonAsButton | ButtonAsLink
 
 export const Button = (props: ButtonProps) => {
-  const { children, className } = props
-  const classes = clsx(styles.button, className)
+  const { children, className, variant = 'primary' } = props
+  const classes = clsx(styles.button, styles[`variant-${variant}`], className)
 
   if (props.href !== undefined) {
     const { href, prefetch } = props

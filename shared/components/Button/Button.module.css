@@ -2,10 +2,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-base) var(--space-2xl);
-  background: var(--color-text);
-  color: var(--color-bg);
-  border: 0;
+  padding: var(--space-base) var(--space-base);
+  border: var(--stroke-base) solid var(--color-text);
   font-family: var(--font-base);
   font-weight: var(--font-weight-light);
   font-size: var(--typo-label-font-size);
@@ -14,6 +12,10 @@
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    opacity var(--motion-fast) var(--ease-out);
 }
 
 .button:focus-visible {
@@ -24,4 +26,28 @@
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.variant-primary {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.variant-primary:hover:not(:disabled) {
+  background: var(--color-highlight);
+}
+
+.variant-secondary {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.variant-secondary:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
 }
