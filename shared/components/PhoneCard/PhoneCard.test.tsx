@@ -40,4 +40,14 @@ describe('PhoneCard', () => {
     render(<PhoneCard phone={phone} priority />)
     expect(screen.getByTestId('next-image')).toHaveAttribute('data-priority', 'true')
   })
+
+  it('sets loading="lazy" when priority is false', () => {
+    render(<PhoneCard phone={phone} />)
+    expect(screen.getByTestId('next-image')).toHaveAttribute('loading', 'lazy')
+  })
+
+  it('sets loading="eager" when priority is true', () => {
+    render(<PhoneCard phone={phone} priority />)
+    expect(screen.getByTestId('next-image')).toHaveAttribute('loading', 'eager')
+  })
 })

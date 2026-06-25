@@ -13,7 +13,11 @@ type PhoneCardProps = {
 }
 
 export const PhoneCard = ({ phone, priority = false }: PhoneCardProps) => (
-  <Link href={ROUTES.phone(phone.id)} className={styles.card}>
+  <Link
+    href={ROUTES.phone(phone.id)}
+    className={styles.card}
+    aria-label={`${phone.brand} ${phone.name}`}
+  >
     <article className={styles.article}>
       <div className={styles.imageWrapper}>
         <Image
@@ -23,6 +27,7 @@ export const PhoneCard = ({ phone, priority = false }: PhoneCardProps) => (
           sizes="(max-width: 767px) 100vw, 344px"
           className={styles.image}
           priority={priority}
+          loading={priority ? 'eager' : 'lazy'}
         />
       </div>
       <div className={styles.info}>

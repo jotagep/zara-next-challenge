@@ -1,5 +1,3 @@
-'use client'
-
 import { type MouseEventHandler, type ReactNode } from 'react'
 import Link from 'next/link'
 
@@ -35,7 +33,7 @@ export const Button = (props: ButtonProps) => {
   const classes = clsx(styles.button, styles[`variant-${variant}`], className)
 
   if (props.href !== undefined) {
-    const { href, prefetch } = props
+    const { href, prefetch = false } = props
     return (
       <Link href={href} className={classes} prefetch={prefetch}>
         {children}
