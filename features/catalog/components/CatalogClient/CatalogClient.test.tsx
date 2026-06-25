@@ -13,8 +13,8 @@ describe('CatalogClient', () => {
   it('renders the search input, the phone grid and the results count', () => {
     render(<CatalogClient initialPhones={phoneFixtures} />)
     expect(screen.getByRole('searchbox')).toBeInTheDocument()
-    expect(screen.getAllByRole('link')).toHaveLength(3)
-    expect(screen.getByText('3 RESULTS')).toBeInTheDocument()
+    expect(screen.getAllByRole('link')).toHaveLength(phoneFixtures.length)
+    expect(screen.getByText('5 RESULTS')).toBeInTheDocument()
   })
 
   it('renders the empty-state message when there are no initial phones', () => {
@@ -51,7 +51,7 @@ describe('CatalogClient', () => {
     render(<CatalogClient initialPhones={phoneFixtures} />)
     await user.type(screen.getByRole('searchbox'), 'galaxy')
     expect(screen.getByText(/searching/i)).toBeInTheDocument()
-    expect(screen.getAllByRole('link')).toHaveLength(3)
+    expect(screen.getAllByRole('link')).toHaveLength(phoneFixtures.length)
   })
 
   it('removes the search param when the input is cleared from a populated URL', async () => {

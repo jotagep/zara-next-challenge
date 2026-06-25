@@ -17,7 +17,7 @@ describe('PhoneGrid', () => {
   it('renders one link per phone', () => {
     render(<PhoneGrid phones={phoneFixtures} />)
     const links = screen.getAllByRole('link')
-    expect(links).toHaveLength(3)
+    expect(links).toHaveLength(phoneFixtures.length)
     expect(links[0]).toHaveAttribute('href', ROUTES.phone(phoneFixtures[0].id))
     expect(links[1]).toHaveAttribute('href', ROUTES.phone(phoneFixtures[1].id))
     expect(links[2]).toHaveAttribute('href', ROUTES.phone(phoneFixtures[2].id))
@@ -28,6 +28,8 @@ describe('PhoneGrid', () => {
     const images = screen.getAllByTestId('next-image')
     expect(images[0]).toHaveAttribute('data-priority', 'true')
     expect(images[1]).toHaveAttribute('data-priority', 'true')
-    expect(images[2]).toHaveAttribute('data-priority', 'false')
+    expect(images[2]).toHaveAttribute('data-priority', 'true')
+    expect(images[3]).toHaveAttribute('data-priority', 'true')
+    expect(images[4]).toHaveAttribute('data-priority', 'false')
   })
 })
