@@ -163,8 +163,6 @@ flowchart TD
 
 **Secrets** (Settings → Secrets and variables → Actions): `X_API_KEY` (build + E2E against the store API).
 
-**Branches:** `develop` is the working branch, `main` is production. Console must stay free of warnings/errors.
-
 ---
 
 ## Extra
