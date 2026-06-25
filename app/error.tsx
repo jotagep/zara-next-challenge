@@ -22,7 +22,7 @@ export default function GlobalError({ error, reset }: ErrorProps) {
     <div className={styles.center}>
       <div className={styles.card}>
         <h1 className={styles.title}>Something went wrong</h1>
-        <p className={styles.message}>We couldn&apos;t load the catalog. Please try again.</p>
+        <p className={styles.message}>An unexpected error occurred. Please try again.</p>
         <Button onClick={reset}>Try again</Button>
       </div>
     </div>

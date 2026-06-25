@@ -23,7 +23,7 @@ describe('GlobalError', () => {
       screen.getByRole('heading', { level: 1, name: 'Something went wrong' })
     ).toBeInTheDocument()
     expect(
-      screen.getByText(/we couldn.+t load the catalog\. please try again\./i)
+      screen.getByText(/an unexpected error occurred\. please try again\./i)
     ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Try again' })).toBeInTheDocument()
   })
