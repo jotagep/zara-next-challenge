@@ -1,0 +1,72 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "total total" "continue pay";
+  gap: var(--space-md);
+  width: 100%;
+  margin-top: auto;
+}
+
+.continue {
+  grid-area: continue;
+  justify-content: center;
+  align-self: start;
+  width: 100%;
+}
+
+.pay {
+  grid-area: pay;
+  width: 100%;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-base);
+  grid-area: total;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.totalLabel {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--typo-body-font-size);
+  line-height: var(--typo-body-font-size);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.totalValue {
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--typo-body-font-size);
+  line-height: var(--typo-body-font-size);
+}
+
+@media (min-width: 768px) {
+  .footer {
+    grid-template-columns: 15.625rem 1fr 15.625rem;
+    grid-template-areas: "continue total pay";
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .continue,
+  .pay {
+    width: 15.625rem;
+  }
+
+  .total {
+    justify-content: flex-end;
+    justify-self: end;
+    gap: var(--space-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    gap: var(--space-3xl);
+  }
+}
