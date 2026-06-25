@@ -1,6 +1,6 @@
 node_modules
 dist
 bun.lock
-dist/bundle-analyzer.html
+.next
 storybook-static
 public
