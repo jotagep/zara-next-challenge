@@ -57,13 +57,12 @@ export const ColorSelector = ({ options, selectedIndex, onSelect }: ColorSelecto
               aria-label={option.name}
               tabIndex={isSelected || (selectedIndex === null && index === 0) ? 0 : -1}
               className={clsx(styles.swatch, isSelected && styles.selected)}
-              style={{ backgroundColor: option.hexCode }}
               onClick={() => onSelect(index)}
               onMouseEnter={() => setHoveredIndex(index)}
               onFocus={() => setHoveredIndex(index)}
               onBlur={() => setHoveredIndex(null)}
             >
-              <span className={styles.swatchInner} />
+              <span className={styles.swatchInner} style={{ backgroundColor: option.hexCode }} />
             </button>
           )
         })}

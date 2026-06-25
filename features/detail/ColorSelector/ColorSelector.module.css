@@ -25,32 +25,28 @@
 
 .swatch {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  border: var(--stroke-base) solid var(--color-border);
+  border: 0;
+  background: transparent;
   cursor: pointer;
-  outline: 0 solid var(--color-text);
-  transition: outline var(--motion-fast) var(--ease-out),
 }
 
 .swatchInner {
   display: block;
   position: absolute;
-  inset: 0;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  outline: 0 solid var(--color-text);
+  transition: outline var(--motion-fast) var(--ease-out);
 }
 
-.swatch:hover {
-  outline: 1px solid var(--color-text);
-  outline-offset: 2px;
-}
-
-.swatch:focus-visible {
-  outline: 1px solid var(--color-text);
-  outline-offset: 2px;
-}
-
-.selected {
+.swatch:hover .swatchInner,
+.swatch:focus-visible .swatchInner,
+.selected .swatchInner {
   outline: 1px solid var(--color-text);
   outline-offset: 2px;
 }
