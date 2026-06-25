@@ -5,16 +5,16 @@ A server-rendered smartphone catalog: browse, search, configure variants, and ma
 
 > CSS Modules + design tokens · zero runtime styling.
 
----
+**DEMO =>** [https://zara-next-challenge.vercel.app/](https://zara-next-challenge.vercel.app/)
 
 ## Table of contents
 
-|                  |                                                                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Setup**        | [Getting started](#getting-started) · [Scripts](#scripts)                                                                                 |
-| **Architecture** | [Decisions](#architectural-decisions) · [Project structure](#project-structure) · [Request lifecycle](#request-lifecycle) · [Cart](#cart) |
-| **Quality**      | [Testing](#testing) · [CI/CD](#cicd)                                                                                                      |
-| **Other**        | [Extra](#extra) · [References](#references) · [Author](#author)                                                                           |
+|                  |                                                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Setup**        | [Getting started](#getting-started) · [Scripts](#scripts)                                                                 |
+| **Architecture** | [Decisions](#architectural-decisions) · [Request lifecycle](#request-lifecycle) · [Project structure](#project-structure) |
+| **Quality**      | [Bundle analysis](#bundle-analysis) · [CI/CD](#cicd)                                                                      |
+| **Other**        | [Extra](#extra) · [References](#references) · [Author](#author)                                                           |
 
 ---
 
@@ -65,6 +65,38 @@ TanStack Query, Redux/Zustand, Tailwind, Sass, CSS-in-JS, Axios, and Jest are al
 
 ---
 
+## Request lifecycle
+
+All catalog and detail data is fetched on the server through the `shared/lib/api/` service layer — features and pages never call `fetch` directly, and the `x-api-key` header stays server-side. Raw API DTOs are mapped to domain types before reaching any component.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User
+    participant Browser
+    participant RSC as Next.js Server<br/>(Server Component)
+    participant Api as apiClient<br/>(server-only)
+    participant Store as Store API
+
+    User->>Browser: types "iphone"
+    Browser->>Browser: debounce 300ms
+    Browser->>RSC: GET /?s=iphone (router.replace)
+    RSC->>RSC: await searchParams → { s: "iphone" }
+    RSC->>Api: fetchPhones({ search: "iphone" })
+    Api->>Api: attach x-api-key header
+    Api->>Store: GET /products?search=iphone
+    Store-->>Api: ProductListEntity[] (raw DTO)
+    Api->>Api: mappers → PhoneSummary[]
+    Api-->>RSC: PhoneSummary[]
+    RSC-->>Browser: streamed HTML (rendered server-side)
+    Browser->>Browser: hydrate CartProvider from localStorage
+    Browser-->>User: catalog grid + results count
+```
+
+The detail page follows the same path via `fetchPhoneById(id)`, mapping the full `ProductEntity` (specs, color/storage options, similar products) before passing serializable props to the client selectors.
+
+---
+
 ## Project structure
 
 In most of the SaaS apps I've worked on lately I lean on a **hexagonal architecture** adapted to the frontend — splitting domain logic, ports, and adapters so the core stays framework-agnostic<sup>1</sup>. But honestly, for a challenge this focused on just three features, that level of indirection is overkill. So here I went with a **screaming architecture** in the form of a feature-driven layout<sup>2</sup> — the folder names read like the product: `catalog`, `detail`, `cart`. Domain code lives in `features/`, routing only in `app/`, and cross-cutting modules in `shared/`.
@@ -101,35 +133,22 @@ e2e/                      Playwright specs (catalog, detail, cart)
 
 ---
 
-## Request lifecycle
+## Bundle analysis
 
-All catalog and detail data is fetched on the server through the `shared/lib/api/` service layer — features and pages never call `fetch` directly, and the `x-api-key` header stays server-side. Raw API DTOs are mapped to domain types before reaching any component.
+Next.js 16 ships a Turbopack-native bundle analyzer (`next experimental-analyze`) — no extra dependency required. `bun run analyze` opens an interactive treemap in the browser where you can drill into every chunk and module.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor User
-    participant Browser
-    participant RSC as Next.js Server<br/>(Server Component)
-    participant Api as apiClient<br/>(server-only)
-    participant Store as Store API
+Because the app is feature-driven, the treemap reads like the product itself: the client-side JS is split across the `catalog`, `detail`, and `cart` islands, with `shared/` housing the cross-cutting pieces (the `CartContext` provider, the UI primitives). That makes it easy to spot a feature leaking code into another route's bundle, or a shared utility pulling in more than it should — which ties back directly to the `'use client'` boundaries described in [Project structure](#project-structure).
 
-    User->>Browser: types "iphone"
-    Browser->>Browser: debounce 300ms
-    Browser->>RSC: GET /?s=iphone (router.replace)
-    RSC->>RSC: await searchParams → { s: "iphone" }
-    RSC->>Api: fetchPhones({ search: "iphone" })
-    Api->>Api: attach x-api-key header
-    Api->>Store: GET /products?search=iphone
-    Store-->>Api: ProductListEntity[] (raw DTO)
-    Api->>Api: mappers → PhoneSummary[]
-    Api-->>RSC: PhoneSummary[]
-    RSC-->>Browser: streamed HTML (rendered server-side)
-    Browser->>Browser: hydrate CartProvider from localStorage
-    Browser-->>User: catalog grid + results count
+<p align="center">
+  <img src="./docs/bundle-analyzer.png" alt="Turbopack bundle analyzer treemap" width="800" />
+</p>
+
+<p align="center"><em>Bundle analyzer treemap</em></p>
+
+```bash
+bun run analyze              # interactive treemap in the browser
+bun run analyze -- --output  # static report → .next/diagnostics/analyze
 ```
-
-The detail page follows the same path via `fetchPhoneById(id)`, mapping the full `ProductEntity` (specs, color/storage options, similar products) before passing serializable props to the client selectors.
 
 ---
 
