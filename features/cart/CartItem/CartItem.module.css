@@ -46,7 +46,7 @@
   font-family: var(--font-base);
   font-weight: var(--font-weight-light);
   font-size: var(--typo-body-font-size);
-  line-height: 1.5;
+  line-height: var(--typo-line-height-relaxed);
   text-transform: uppercase;
 }
 
@@ -55,7 +55,7 @@
   font-family: var(--font-base);
   font-weight: var(--font-weight-light);
   font-size: var(--typo-label-font-size);
-  line-height: 1.5;
+  line-height: var(--typo-line-height-relaxed);
   color: var(--color-text);
 }
 
@@ -64,7 +64,7 @@
   font-family: var(--font-base);
   font-weight: var(--font-weight-light);
   font-size: var(--typo-label-font-size);
-  line-height: 1;
+  line-height: var(--typo-line-height-flat);
 }
 
 @media (min-width: 768px) {

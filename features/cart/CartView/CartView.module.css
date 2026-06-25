@@ -1,8 +1,8 @@
 .view {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-  gap: var(--space-2xl);
   padding-top: var(--space-xl);
 }
 
@@ -15,16 +15,6 @@
   text-transform: uppercase;
 }
 
-.emptyFooter {
-  display: flex;
-  margin-top: var(--space-base);
-}
-
-.continue {
-  justify-content: center;
-  white-space: nowrap;
-}
-
 @media (min-width: 768px) {
   .heading {
     font-size: var(--typo-display-font-size);
@@ -32,7 +22,6 @@
   }
 
   .view {
-    gap: var(--space-3xl);
     padding-top: var(--space-3xl);
   }
 }

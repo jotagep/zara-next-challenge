@@ -11,6 +11,9 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: var(--font-base);
   font-weight: var(--font-weight-light);
   font-size: var(--typo-body-font-size);

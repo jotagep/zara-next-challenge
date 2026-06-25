@@ -7,7 +7,8 @@
 }
 
 .gallery {
-  width: 260px;
+  flex: 0 0 auto;
+  width: var(--width-gallery);
 }
 
 .info {
@@ -67,31 +68,14 @@
   }
 }
 
-@media (min-width: 768px) {
-  .gallery {
-    flex: 0 0 auto;
-    width: 360px;
-  }
-}
-
 @media (min-width: 1024px) {
   .hero {
     gap: var(--space-4xl);
-  }
-
-  .gallery {
-    width: 400px;
   }
 
   .info {
     flex: 0 0 auto;
     width: var(--width-product-info);
     gap: var(--space-4xl);
-  }
-}
-
-@media (min-width: 1280px) {
-  .gallery {
-    width: 510px;
   }
 }

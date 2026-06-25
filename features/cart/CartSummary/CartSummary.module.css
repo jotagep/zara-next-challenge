@@ -4,6 +4,8 @@
   grid-template-areas: "total total" "continue pay";
   gap: var(--space-md);
   width: 100%;
+  background: var(--color-bg);
+  padding-top: var(--space-xl);
   margin-top: auto;
 }
 
@@ -51,6 +53,10 @@
     grid-template-areas: "continue total pay";
     align-items: center;
     gap: var(--space-2xl);
+  }
+
+  .empty {
+    justify-content: center;
   }
 
   .continue,

@@ -50,6 +50,9 @@
   --typo-brand-font-size: 10px;
   --typo-brand-line-height: 14px;
 
+  --typo-line-height-relaxed: 1.5;
+  --typo-line-height-flat: 1;
+
   --height-header: 80px;
   --height-search: 27px;
 
@@ -60,6 +63,7 @@
   --width-content: 1200px;
   --width-catalog: 1842px;
   --width-product-info: 380px;
+  --width-gallery: 260px;
 
   --radius-sm: 4px;
 
@@ -77,12 +81,20 @@
   :root {
     --space-container: 40px;
     --width-cart-item-image: 260px;
+    --width-gallery: 360px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
     --space-container: 60px;
+    --width-gallery: 400px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --width-gallery: 510px;
   }
 }
 
