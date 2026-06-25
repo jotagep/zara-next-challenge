@@ -45,6 +45,11 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Test artifacts:
     "coverage/**",
+    // Playwright:
+    "e2e/**",
+    "playwright-report/**",
+    "test-results/**",
+    "playwright.config.ts",
   ]),
 ])
 
