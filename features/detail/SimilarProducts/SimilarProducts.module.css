@@ -17,20 +17,6 @@
   letter-spacing: 0;
 }
 
-.list {
-  --gutter: var(--space-xl);
-  padding-top: var(--space-base);
-  padding-bottom: var(--space-base);
-  padding-left: max(
-    var(--gutter),
-    calc(50vw - var(--width-content) / 2 + var(--space-container))
-  );
-  padding-right: max(
-    var(--gutter),
-    calc(50vw - var(--width-content) / 2 + var(--space-container))
-  );
-}
-
 .cardWrapper {
   flex: 0 0 80vw;
   width: 80vw;
@@ -43,12 +29,8 @@
     gap: var(--space-3xl);
   }
 
-  .list {
-    --gutter: var(--space-3xl);
-  }
-
   .cardWrapper {
-    flex-basis: var(--width-card);
+    flex: 0 0 var(--width-card);
     width: var(--width-card);
   }
 }

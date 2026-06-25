@@ -13,7 +13,7 @@ export const SimilarProducts = ({ products }: SimilarProductsProps) => {
   return (
     <section className={styles.section} aria-label="Similar items">
       <h2 className={styles.heading}>Similar items</h2>
-      <Carousel className={styles.list} bleed aria-label="Similar products carousel">
+      <Carousel bleed aria-label="Similar products carousel">
         {products.map((product) => (
           <li key={product.id} className={styles.cardWrapper}>
             <PhoneCard phone={product} />

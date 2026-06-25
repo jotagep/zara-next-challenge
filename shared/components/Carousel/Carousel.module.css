@@ -26,11 +26,28 @@
 }
 
 .carouselListBleed {
+  --gutter: var(--space-xl);
   position: relative;
   left: 50%;
   width: 100vw;
   margin-left: -50vw;
   margin-right: -50vw;
+  padding-top: var(--space-base);
+  padding-bottom: var(--space-base);
+  padding-left: max(
+    var(--gutter),
+    calc(50vw - var(--width-content) / 2 + var(--space-container))
+  );
+  padding-right: max(
+    var(--gutter),
+    calc(50vw - var(--width-content) / 2 + var(--space-container))
+  );
+}
+
+@media (min-width: 768px) {
+  .carouselListBleed {
+    --gutter: var(--space-3xl);
+  }
 }
 
 .carouselScrollbar {

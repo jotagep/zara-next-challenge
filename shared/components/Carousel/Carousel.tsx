@@ -11,7 +11,6 @@ type CarouselProps = {
   children: ReactNode
   className?: string
   bleed?: boolean
-  resetKey?: string | number
   'aria-label'?: string
 }
 
@@ -19,10 +18,9 @@ export const Carousel = ({
   children,
   className,
   bleed = false,
-  resetKey,
   'aria-label': ariaLabel,
 }: CarouselProps) => {
-  const { ref, thumb } = useCarousel<HTMLUListElement>({ resetKey })
+  const { ref, thumb } = useCarousel<HTMLUListElement>()
 
   return (
     <div className={styles.carouselWrapper}>

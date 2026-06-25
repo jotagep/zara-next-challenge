@@ -1,16 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-type UseScrollRowOptions = {
-  resetKey?: string | number
-}
-
 type ScrollThumb = {
   visible: boolean
   width: number
   left: number
 }
 
-export const useCarousel = <T extends HTMLElement>({ resetKey }: UseScrollRowOptions = {}) => {
+export const useCarousel = <T extends HTMLElement>() => {
   const ref = useRef<T>(null)
   const [thumb, setThumb] = useState<ScrollThumb>({ visible: false, width: 0, left: 0 })
   const frame = useRef<number | null>(null)
@@ -55,11 +51,6 @@ export const useCarousel = <T extends HTMLElement>({ resetKey }: UseScrollRowOpt
       if (frame.current !== null) cancelAnimationFrame(frame.current)
     }
   }, [measure])
-
-  useEffect(() => {
-    if (resetKey === undefined) return
-    ref.current?.scrollTo({ left: 0, behavior: 'auto' })
-  }, [resetKey])
 
   return {
     ref,

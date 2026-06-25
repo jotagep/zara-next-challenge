@@ -3,12 +3,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { useCarousel } from './useCarousel'
 
-type HarnessProps = {
-  resetKey?: string | number
-}
-
-const CarouselHarness = ({ resetKey }: HarnessProps) => {
-  const { ref, thumb } = useCarousel<HTMLDivElement>({ resetKey })
+const CarouselHarness = () => {
+  const { ref, thumb } = useCarousel<HTMLDivElement>()
   return (
     <div>
       <div ref={ref} data-testid="track" />
@@ -186,43 +182,5 @@ describe('useCarousel', () => {
 
     expect(removeScrollListenerSpy).toHaveBeenCalledWith('scroll', expect.any(Function))
     expect(disconnectSpy).toHaveBeenCalled()
-  })
-})
-
-// jsdom does not implement Element.prototype.scrollTo; the hook calls
-// ref.current?.scrollTo(...) so we need a no-op for the effect to run.
-if (typeof Element.prototype.scrollTo !== 'function') {
-  Element.prototype.scrollTo = function () {}
-}
-
-describe('useCarousel resetKey', () => {
-  it('does not scroll when resetKey is undefined', () => {
-    const { getByTestId, rerender } = render(<CarouselHarness />)
-    const track = getByTestId('track') as HTMLDivElement
-    const scrollTo = vi.spyOn(track, 'scrollTo').mockImplementation(() => {})
-
-    rerender(<CarouselHarness />)
-
-    expect(scrollTo).not.toHaveBeenCalled()
-  })
-
-  it('scrolls to the start when resetKey changes', () => {
-    const { getByTestId, rerender } = render(<CarouselHarness resetKey="a" />)
-    const track = getByTestId('track') as HTMLDivElement
-    const scrollTo = vi.spyOn(track, 'scrollTo').mockImplementation(() => {})
-
-    rerender(<CarouselHarness resetKey="b" />)
-
-    expect(scrollTo).toHaveBeenCalledWith({ left: 0, behavior: 'auto' })
-  })
-
-  it('does not scroll when resetKey keeps the same value', () => {
-    const { getByTestId, rerender } = render(<CarouselHarness resetKey="a" />)
-    const track = getByTestId('track') as HTMLDivElement
-    const scrollTo = vi.spyOn(track, 'scrollTo').mockImplementation(() => {})
-
-    rerender(<CarouselHarness resetKey="a" />)
-
-    expect(scrollTo).not.toHaveBeenCalled()
   })
 })
