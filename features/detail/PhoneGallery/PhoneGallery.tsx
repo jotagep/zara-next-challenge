@@ -17,6 +17,7 @@ export const PhoneGallery = ({ imageUrl, alt, priority = true }: PhoneGalleryPro
       sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 400px, 510px"
       className={styles.image}
       priority={priority}
+      loading={priority ? 'eager' : 'lazy'}
     />
   </div>
 )

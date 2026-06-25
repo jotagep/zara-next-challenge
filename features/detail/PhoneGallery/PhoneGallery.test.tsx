@@ -18,6 +18,16 @@ describe('PhoneGallery', () => {
     expect(screen.getByTestId('next-image')).toHaveAttribute('data-priority', 'true')
   })
 
+  it('sets loading="eager" when priority is true', () => {
+    render(<PhoneGallery imageUrl="https://example.com/x.png" alt="A phone" />)
+    expect(screen.getByTestId('next-image')).toHaveAttribute('loading', 'eager')
+  })
+
+  it('sets loading="lazy" when priority is false', () => {
+    render(<PhoneGallery imageUrl="https://example.com/x.png" alt="A phone" priority={false} />)
+    expect(screen.getByTestId('next-image')).toHaveAttribute('loading', 'lazy')
+  })
+
   it('forwards priority=false when the caller opts out', () => {
     render(<PhoneGallery imageUrl="https://example.com/x.png" alt="A phone" priority={false} />)
     expect(screen.getByTestId('next-image')).toHaveAttribute('data-priority', 'false')
