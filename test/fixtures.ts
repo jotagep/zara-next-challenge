@@ -1,3 +1,4 @@
+import type { CartItem } from '@/shared/context/CartContext'
 import type {
   ColorOption,
   Phone,
@@ -71,3 +72,30 @@ export const phoneDetailFixtures: Phone = {
   storageOptions: storageOptionFixtures,
   similarProducts: phoneFixtures,
 }
+
+export const cartItemFixtures: CartItem[] = [
+  {
+    id: 'AP15P',
+    brand: 'Apple',
+    name: 'iPhone 15 Pro',
+    color: colorOptionFixtures[0],
+    storage: storageOptionFixtures[1],
+    quantity: 1,
+  },
+  {
+    id: 'SGS24',
+    brand: 'Samsung',
+    name: 'Galaxy S24 Ultra',
+    color: colorOptionFixtures[1],
+    storage: storageOptionFixtures[2],
+    quantity: 2,
+  },
+  {
+    id: 'PX8P',
+    brand: 'Google',
+    name: 'Pixel 8 Pro',
+    color: colorOptionFixtures[2],
+    storage: storageOptionFixtures[0],
+    quantity: 3,
+  },
+]
