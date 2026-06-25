@@ -1,3 +1,4 @@
+import { PRIORITY_CARD_COUNT } from '@/features/catalog/constants'
 import { ROUTES } from '@/shared/config/routes'
 import { phoneFixtures } from '@/test/fixtures'
 import { render, screen } from '@testing-library/react'
@@ -26,10 +27,9 @@ describe('PhoneGrid', () => {
   it('marks the first PRIORITY_CARD_COUNT cards as priority', () => {
     render(<PhoneGrid phones={phoneFixtures} />)
     const images = screen.getAllByTestId('next-image')
-    expect(images[0]).toHaveAttribute('data-priority', 'true')
-    expect(images[1]).toHaveAttribute('data-priority', 'true')
-    expect(images[2]).toHaveAttribute('data-priority', 'true')
-    expect(images[3]).toHaveAttribute('data-priority', 'true')
-    expect(images[4]).toHaveAttribute('data-priority', 'false')
+    images.forEach((image, index) => {
+      const expected = index < PRIORITY_CARD_COUNT ? 'true' : 'false'
+      expect(image).toHaveAttribute('data-priority', expected)
+    })
   })
 })
