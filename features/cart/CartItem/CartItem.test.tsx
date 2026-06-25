@@ -84,10 +84,15 @@ describe('CartItem', () => {
     ).toBeInTheDocument()
   })
 
-  it('formats the line total as price * quantity', () => {
+  it('formats the unit price', () => {
+    render(<CartItem item={firstItem} onRemove={onRemove} />)
+    expect(screen.getByText(`${firstItem.storage.price} EUR`)).toBeInTheDocument()
+  })
+
+  it('shows the line total when quantity is greater than 1', () => {
     const item = { ...firstItem, quantity: 2 }
     render(<CartItem item={item} onRemove={onRemove} />)
-    const expected = `${item.storage.price * item.quantity} EUR`
+    const expected = `${item.storage.price} EUR (${item.storage.price * item.quantity} EUR total)`
     expect(screen.getByText(expected)).toBeInTheDocument()
   })
 

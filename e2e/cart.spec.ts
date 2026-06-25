@@ -88,7 +88,12 @@ test.describe('Cart page (/cart)', () => {
         id: phone.id,
         brand: 'Napptilus',
         name: 'Seeded Phone',
-        color: { name: 'Midnight', hexCode: '#111111', imageUrl: 'https://example.com/seed.jpg' },
+        color: {
+          name: 'Midnight',
+          hexCode: '#111111',
+          imageUrl:
+            'https://prueba-tecnica-api-tienda-moviles.onrender.com/images/SMG-S24U-titanium-violet.webp',
+        },
         storage: { capacity: '256GB', price: 999 },
         quantity: 1,
       },

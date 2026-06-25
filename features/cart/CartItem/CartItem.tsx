@@ -41,7 +41,10 @@ export const CartItem = ({ item, onRemove }: CartItemProps) => {
             {color.name}
             {quantity > 1 ? ` × ${quantity}` : ''}
           </p>
-          <p className={styles.price}>{formatPrice(lineTotal)}</p>
+          <p className={styles.price}>
+            {formatPrice(storage.price)}
+            {quantity > 1 && ` (${formatPrice(lineTotal)} total)`}
+          </p>
         </div>
         <RemoveButton
           ariaLabel={`Remove ${brand} ${name} from cart`}
