@@ -1,5 +1,11 @@
 import type { CartItem } from '@/shared/context/CartContext'
 import type {
+  ApiColorOption,
+  ApiPhoneDetail,
+  ApiPhoneListItem,
+  ApiStorageOption,
+} from '@/shared/lib/types/api'
+import type {
   ColorOption,
   Phone,
   PhoneListItem,
@@ -99,3 +105,60 @@ export const cartItemFixtures: CartItem[] = [
     quantity: 3,
   },
 ]
+
+export const apiPhoneListItemFixtures: ApiPhoneListItem[] = [
+  {
+    id: 'AP15P',
+    brand: 'Apple',
+    name: 'iPhone 15 Pro',
+    basePrice: 1099,
+    imageUrl: 'https://cdn/iphone.png',
+  },
+  {
+    id: 'SGS24',
+    brand: 'Samsung',
+    name: 'Galaxy S24 Ultra',
+    basePrice: 1299,
+    imageUrl: 'https://cdn/galaxy.png',
+  },
+  {
+    id: 'PX8P',
+    brand: 'Google',
+    name: 'Pixel 8 Pro',
+    basePrice: 999,
+    imageUrl: 'https://cdn/pixel.png',
+  },
+]
+
+export const apiColorOptionFixtures: ApiColorOption[] = [
+  { name: 'Black', hexCode: '#000000', imageUrl: 'https://cdn/black.png' },
+  { name: 'Blue', hexCode: '#1E90FF', imageUrl: 'https://cdn/blue.png' },
+]
+
+export const apiStorageOptionFixtures: ApiStorageOption[] = [
+  { capacity: '128 GB', price: 999 },
+  { capacity: '256 GB', price: 1099 },
+]
+
+export const apiPhoneDetailFixtures: ApiPhoneDetail = {
+  id: 'AP15P',
+  brand: 'Apple',
+  name: 'iPhone 15 Pro',
+  description: 'A magical new way to interact with iPhone.',
+  basePrice: 1099,
+  rating: 4.6,
+  imageUrl: 'https://cdn/iphone.png',
+  specs: {
+    screen: '6.1" Super Retina XDR',
+    resolution: '2556 x 1179',
+    processor: 'Apple A17 Pro',
+    mainCamera: '48 MP',
+    selfieCamera: '12 MP',
+    battery: '3274 mAh',
+    os: 'iOS 17',
+    screenRefreshRate: '120 Hz',
+  },
+  colorOptions: apiColorOptionFixtures,
+  storageOptions: apiStorageOptionFixtures,
+  similarProducts: apiPhoneListItemFixtures,
+}
