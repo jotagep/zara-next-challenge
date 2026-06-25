@@ -65,13 +65,16 @@ test.describe('Phone detail page (/phone/:id)', () => {
     await expect(page.locator('[aria-live="polite"]').first()).toHaveText(colorName)
   })
 
-  test('adding to cart increments the header bag counter', async ({ page }) => {
+  test('adding to cart increments the header bag counter and navigates to /cart', async ({
+    page,
+  }) => {
     await page.goto(phonePath)
 
     await page.getByRole('link', { name: 'Shopping bag, 0 items' }).waitFor()
     await page.getByRole('radiogroup', { name: 'Storage' }).getByRole('radio').first().click()
     await page.getByRole('button', { name: 'Add', exact: true }).click()
 
+    await expect(page).toHaveURL('/cart')
     await expect(page.getByRole('link', { name: 'Shopping bag, 1 items' })).toBeVisible()
   })
 

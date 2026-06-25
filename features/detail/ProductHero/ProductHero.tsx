@@ -1,11 +1,13 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { AddToCart } from '@/features/detail/AddToCart/AddToCart'
 import { ColorSelector } from '@/features/detail/ColorSelector/ColorSelector'
 import { PhoneGallery } from '@/features/detail/PhoneGallery/PhoneGallery'
 import { StorageSelector } from '@/features/detail/StorageSelector/StorageSelector'
+import { ROUTES } from '@/shared/config/routes'
 import { useCart } from '@/shared/context/CartContext'
 import type { ColorOption, Phone, StorageOption } from '@/shared/lib/types/domain'
 import { formatPrice } from '@/shared/lib/utils/formatPrice'
@@ -21,6 +23,7 @@ type ProductHeroProps = {
 
 export const ProductHero = ({ phone }: ProductHeroProps) => {
   const { addToCart } = useCart()
+  const router = useRouter()
   const [storageIndex, setStorageIndex] = useState<number | null>(null)
   const [colorIndex, setColorIndex] = useState(0)
 
@@ -45,6 +48,7 @@ export const ProductHero = ({ phone }: ProductHeroProps) => {
       color: selectedColor,
       storage: selectedStorage,
     })
+    router.push(ROUTES.cart)
   }
 
   return (

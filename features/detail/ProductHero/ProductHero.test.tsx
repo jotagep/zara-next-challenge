@@ -1,6 +1,8 @@
+import { ROUTES } from '@/shared/config/routes'
 import { CartProvider, useCart } from '@/shared/context/CartContext'
 import type { Phone } from '@/shared/lib/types/domain'
 import { phoneDetailFixtures, storageOptionFixtures } from '@/test/fixtures'
+import { nav, resetNav } from '@/test/mocks/next/navigation'
 import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it } from 'vitest'
@@ -35,6 +37,7 @@ const renderHeroWithSharedCart = (phone: Phone) => {
 describe('ProductHero', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    resetNav()
   })
 
   it('renders the phone name uppercased as the hero title', () => {
@@ -192,5 +195,25 @@ describe('ProductHero', () => {
     )
     await user.click(screen.getByRole('radio', { name: '128 GB' }))
     expect(screen.getByRole('button', { name: /add/i })).toBeDisabled()
+  })
+
+  it('navigates to the cart route when Add is clicked', async () => {
+    const user = userEvent.setup()
+    render(<ProductHero phone={pickPhone()} />, { wrapper })
+
+    await user.click(screen.getByRole('radio', { name: '128 GB' }))
+    await user.click(screen.getByRole('button', { name: /add/i }))
+
+    expect(nav.push).toHaveBeenCalledTimes(1)
+    expect(nav.push).toHaveBeenCalledWith(ROUTES.cart)
+  })
+
+  it('does not navigate to the cart when Add is clicked before storage is selected', async () => {
+    const user = userEvent.setup()
+    render(<ProductHero phone={pickPhone()} />, { wrapper })
+
+    await user.click(screen.getByRole('button', { name: /add/i }))
+
+    expect(nav.push).not.toHaveBeenCalled()
   })
 })
