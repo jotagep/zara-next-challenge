@@ -47,3 +47,7 @@ if (typeof globalThis.PointerEvent === 'undefined') {
   }
   globalThis.PointerEvent = PointerEventStub as unknown as typeof PointerEvent
 }
+
+if (typeof Element.prototype.scrollTo !== 'function') {
+  Element.prototype.scrollTo = function () {}
+}
