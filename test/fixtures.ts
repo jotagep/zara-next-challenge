@@ -35,6 +35,20 @@ export const phoneFixtures: PhoneListItem[] = [
     basePrice: 999,
     imageUrl: 'https://example.com/pixel-8-pro.png',
   },
+  {
+    id: 'OPF5',
+    brand: 'OnePlus',
+    name: 'OnePlus 12',
+    basePrice: 899,
+    imageUrl: 'https://example.com/oneplus-12.png',
+  },
+  {
+    id: 'XMI14',
+    brand: 'Xiaomi',
+    name: 'Xiaomi 14',
+    basePrice: 799,
+    imageUrl: 'https://example.com/xiaomi-14.png',
+  },
 ]
 
 export const emptyPhoneFixtures: PhoneListItem[] = []
