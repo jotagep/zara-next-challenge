@@ -1,0 +1,35 @@
+.messageScreenCenter {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) 0;
+}
+
+.messageScreenCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-base);
+  max-width: 480px;
+  text-align: center;
+}
+
+.messageScreenTitle {
+  margin: 0;
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-display-font-size);
+  line-height: var(--typo-display-line-height);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.messageScreenMessage {
+  margin: 0;
+  font-family: var(--font-base);
+  font-weight: var(--font-weight-light);
+  font-size: var(--typo-body-font-size);
+  line-height: var(--typo-body-line-height);
+  color: var(--color-text-secondary);
+}
