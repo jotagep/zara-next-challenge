@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { CartList } from '@/features/cart/CartList/CartList'
 import { CartSummary } from '@/features/cart/CartSummary/CartSummary'
 import { ROUTES } from '@/shared/config/routes'
@@ -33,9 +35,9 @@ vi.mock('@/features/cart/CartList/CartList', () => ({
 }))
 
 vi.mock('@/features/cart/CartSummary/CartSummary', () => ({
-  CartSummary: vi.fn(({ total }: { total: number }) => (
-    <footer data-testid="cart-summary" data-total={total}>
-      Cart summary — total: {total} EUR
+  CartSummary: vi.fn(({ total, empty }: { total: number; empty?: boolean }) => (
+    <footer data-testid="cart-summary" data-total={total} data-empty={String(Boolean(empty))}>
+      {empty ? <Link href="/">Continue shopping</Link> : <>Cart summary — total: {total} EUR</>}
     </footer>
   )),
 }))
@@ -96,12 +98,17 @@ describe('CartView', () => {
       expect(screen.getByRole('heading', { level: 1, name: 'Cart (0)' })).toBeInTheDocument()
     })
 
-    it('does not render CartList or CartSummary', () => {
+    it('does not render CartList', () => {
       renderView()
       expect(screen.queryByTestId('cart-list')).toBeNull()
-      expect(screen.queryByTestId('cart-summary')).toBeNull()
       expect(mockedCartList).not.toHaveBeenCalled()
-      expect(mockedCartSummary).not.toHaveBeenCalled()
+    })
+
+    it('renders CartSummary in empty mode with total=0', () => {
+      renderView()
+      const summary = screen.getByTestId('cart-summary')
+      expect(summary).toHaveAttribute('data-empty', 'true')
+      expect(summary).toHaveAttribute('data-total', '0')
     })
 
     it('shows a "Continue shopping" link pointing to the home route', () => {
@@ -178,7 +185,8 @@ describe('CartView', () => {
 
       expect(screen.getByRole('heading', { level: 1, name: 'Cart (0)' })).toBeInTheDocument()
       expect(screen.queryByTestId('cart-list')).toBeNull()
-      expect(screen.queryByTestId('cart-summary')).toBeNull()
+      const summary = screen.getByTestId('cart-summary')
+      expect(summary).toHaveAttribute('data-empty', 'true')
       expect(screen.getByRole('link', { name: 'Continue shopping' })).toHaveAttribute(
         'href',
         ROUTES.home

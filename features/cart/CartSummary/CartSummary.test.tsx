@@ -50,4 +50,23 @@ describe('CartSummary', () => {
     expect(directChildren[1]).toBe(screen.getByText((_c, el) => el?.tagName === 'P'))
     expect(directChildren[2]).toBe(screen.getByRole('button', { name: 'Pay' }))
   })
+
+  describe('empty mode', () => {
+    it('renders only the "Continue shopping" link', () => {
+      render(<CartSummary total={0} empty />)
+      const link = screen.getByRole('link', { name: 'Continue shopping' })
+      expect(link).toHaveAttribute('href', ROUTES.home)
+    })
+
+    it('does not render the total or the Pay button', () => {
+      render(<CartSummary total={0} empty />)
+      expect(screen.queryByText('Total')).toBeNull()
+      expect(screen.queryByRole('button', { name: 'Pay' })).toBeNull()
+    })
+
+    it('renders as a footer', () => {
+      const { container } = render(<CartSummary total={0} empty />)
+      expect(container.querySelector('footer')).not.toBeNull()
+    })
+  })
 })
